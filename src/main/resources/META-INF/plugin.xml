@@ -1,0 +1,97 @@
+<!-- Plugin Configuration File: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
+<idea-plugin>
+    <!-- Unique identifier of the plugin. It should be FQN, cannot be changed between the plugin versions. -->
+    <id>com.d1vivek.JksGeneratorPlugin</id>
+
+    <!-- Public plugin name should be written in Title Case.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-name -->
+    <name>JKS Generator</name>
+
+    <!-- A displayed Vendor name or Organization ID displayed on the Plugins Page. -->
+    <vendor url="https://www.viveksharma.com.np">Bibek Sharma</vendor>
+
+    <!-- Description of the plugin displayed on the Plugin Page and IDE Plugin Manager.
+         Guidelines: https://plugins.jetbrains.com/docs/marketplace/best-practices-for-listing.html#plugin-description -->
+    <description><![CDATA[
+        <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JKS Generator Plugin Overview</title>
+    <style>
+    </style>
+</head>
+<body>
+
+    <h1>JKS Generator Plugin Overview</h1>
+
+    <p>The <strong>JKS Generator</strong> plugin for IntelliJ IDEA provides an intuitive, streamlined interface for creating Java KeyStore (JKS) files directly within the IDE, without the need to manually use the <code>keytool</code> command. This tool simplifies the process of generating JKS files by allowing you to specify all the necessary details directly through a user-friendly form.</p>
+
+    <h2>Key Features:</h2>
+    <ul>
+        <li><strong>Simplified JKS Generation:</strong> Easily create Java KeyStore (JKS) files with a few simple inputs. No need to manually invoke <code>keytool</code> or handle complex command-line operations.</li>
+        <li><strong>User-Friendly Interface:</strong> The plugin provides a graphical interface where you can enter required details such as:
+            <ul>
+                <li>Key password</li>
+                <li>Confirm key password</li>
+                <li>Alias name</li>
+                <li>Alias password (with confirmation)</li>
+                <li>Country code (for the certificate)</li>
+            </ul>
+        </li>
+        <li><strong>Customizable File Naming:</strong> Once all the details are entered, the plugin generates a <code>d1_keystore.jks</code> file at the selected directory, ready for use.</li>
+        <li><strong>Tool Window Access:</strong> After installation, the plugin can be accessed easily through <strong>Views &gt; Tool Windows &gt; JKS Generator</strong>, making it simple and efficient to launch and use at any time.</li>
+    </ul>
+
+    <h2>Benefits:</h2>
+    <ul>
+        <li><strong>No Command Line Required:</strong> Users no longer need to use the terminal or remember <code>keytool</code> syntax. The plugin handles all the complexities of JKS file generation.</li>
+        <li><strong>Quick Setup:</strong> With the form-based input, the JKS file is generated instantly after providing the required details, saving time and reducing errors.</li>
+        <li><strong>Security:</strong> Secure handling of passwords and sensitive data during the keystore generation process.</li>
+    </ul>
+
+    <div class="section-header">How to Use:</div>
+    <ol>
+        <li><strong>Install the Plugin:</strong> Once installed, open IntelliJ IDEA and navigate to <strong>Views &gt; Tool Windows &gt; JKS Generator</strong>.</li>
+        <li><strong>Fill Out the Form:</strong> Enter the required information, such as key password, alias name, alias password, and country code.</li>
+        <li><strong>Generate the JKS File:</strong> Click the <strong>Generate</strong> button, and your <code>d1_keystore.jks</code> file will be created in the chosen directory.</li>
+    </ol>
+
+    <div class="example">
+        <strong>Example Flow:</strong>
+        <ul>
+            <li>Select a folder to save your JKS file.</li>
+            <li>Enter and confirm passwords for both the key and the alias.</li>
+            <li>Specify the alias name and country code.</li>
+            <li>Click the <strong>Generate</strong> button, and the <code>d1_keystore.jks</code> file will be generated at the specified location.</li>
+        </ul>
+    </div>
+
+</body>
+</html>
+
+    ]]></description>
+
+    <!-- Product and plugin compatibility requirements.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html -->
+    <depends>com.intellij.modules.platform</depends>
+
+    <resource-bundle>messages.MyMessageBundle</resource-bundle>
+    <!-- Extensions defined by the plugin.
+         Read more: https://plugins.jetbrains.com/docs/intellij/plugin-extension-points.html -->
+    <extensions defaultExtensionNs="com.intellij">
+        <toolWindow id="MyToolWindow" factoryClass="com.d1vivek.jksgeneratorplugin.MyToolWindowFactory"
+                    icon="AllIcons.Toolwindows.ToolWindowPalette"/>
+    </extensions>
+
+<!--    <actions>-->
+<!--        <action id="CreateJKSAction"-->
+<!--                class="com.d1vivek.jkscreator.CreateJKSAction"-->
+<!--                text="Create JKS File"-->
+<!--                description="Generate a JKS Keystore File">-->
+<!--            <add-to-group group-id="ToolsMenu" anchor="last"/>-->
+<!--        </action>-->
+<!--    </actions>-->
+
+</idea-plugin>
