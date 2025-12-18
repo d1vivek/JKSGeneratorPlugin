@@ -19,11 +19,16 @@ import com.intellij.util.IconUtil
 import com.intellij.util.ui.FormBuilder
 import com.intellij.util.ui.JBUI
 import j.G.s
+import java.awt.Color
 import java.awt.FlowLayout
 import java.awt.Font
+import java.awt.Graphics2D
+import java.awt.image.BufferedImage
 import java.io.File
+import javax.imageio.ImageIO
 import javax.swing.BorderFactory
 import javax.swing.BoxLayout
+import javax.swing.ImageIcon
 import javax.swing.JButton
 import javax.swing.border.MatteBorder
 import javax.swing.text.AttributeSet
@@ -40,9 +45,9 @@ class MyToolWindowFactory : ToolWindowFactory {
         toolWindow.contentManager.addContent(content)
 
         toolWindow.setIcon(
-            IconUtil.colorize(
-                IconLoader.getIcon("/images/tool_icon.png", MyToolWindowFactory::class.java),
-                JBColor(JBColor.white.brighter(), JBColor.black)
+            IconLoader.getIcon(
+                if (JBColor.isBright()) "/images/icon_light.svg" else "/images/icon_dark.svg",
+                MyToolWindowFactory::class.java
             )
         )
     }
@@ -53,14 +58,13 @@ class MyToolWindowFactory : ToolWindowFactory {
             layout = BoxLayout(this, BoxLayout.Y_AXIS)
             border = JBUI.Borders.empty(10)
 
-            val isDebug = ApplicationManager.getApplication().isInternal
+            val isDebug = false/*ApplicationManager.getApplication().isInternal*/
             // ====== Logo ======
             val logoLabel = JBLabel().apply {
-//                icon = IconUtil.colorize(
-//                    IconLoader.getIcon("/images/logo.png", MyToolWindow::class.java),
-//                    JBColor.lightGray
-//                )
-                val icon = IconLoader.getIcon("/images/logo.png", MyToolWindow::class.java)
+                icon = IconLoader.getIcon(
+                    if (JBColor.isBright()) "/images/icon_light.svg" else "/images/icon_dark.svg",
+                    MyToolWindowFactory::class.java
+                )
                 this.icon = IconUtil.resizeSquared(icon, 128)
                 horizontalAlignment = JBLabel.CENTER
             }
@@ -68,7 +72,7 @@ class MyToolWindowFactory : ToolWindowFactory {
             // ====== Plugin name ======
             val pluginNameLabel = JBLabel("JKS Generator").apply {
                 horizontalAlignment = JBLabel.CENTER
-                foreground = JBColor(JBColor.RED.darker(), JBColor.RED.darker())
+                foreground = JBColor(JBColor.white, JBColor.black)
                 font = font.deriveFont(Font.BOLD, 24f)
             }
 
