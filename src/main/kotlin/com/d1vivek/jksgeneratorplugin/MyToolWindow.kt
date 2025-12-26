@@ -1,6 +1,5 @@
 package com.d1vivek.jksgeneratorplugin
 
-import com.intellij.openapi.application.ApplicationManager
 import com.intellij.openapi.fileChooser.FileChooserDescriptor
 import com.intellij.openapi.project.Project
 import com.intellij.openapi.ui.Messages
@@ -9,26 +8,16 @@ import com.intellij.openapi.util.IconLoader
 import com.intellij.openapi.wm.ToolWindow
 import com.intellij.openapi.wm.ToolWindowFactory
 import com.intellij.ui.JBColor
-import com.intellij.ui.components.JBLabel
-import com.intellij.ui.components.JBPanel
-import com.intellij.ui.components.JBPasswordField
-import com.intellij.ui.components.JBScrollPane
-import com.intellij.ui.components.JBTextField
+import com.intellij.ui.components.*
 import com.intellij.ui.content.ContentFactory
 import com.intellij.util.IconUtil
 import com.intellij.util.ui.FormBuilder
 import com.intellij.util.ui.JBUI
-import j.G.s
-import java.awt.Color
 import java.awt.FlowLayout
 import java.awt.Font
-import java.awt.Graphics2D
-import java.awt.image.BufferedImage
 import java.io.File
-import javax.imageio.ImageIO
 import javax.swing.BorderFactory
 import javax.swing.BoxLayout
-import javax.swing.ImageIcon
 import javax.swing.JButton
 import javax.swing.border.MatteBorder
 import javax.swing.text.AttributeSet

@@ -5,7 +5,7 @@ plugins {
 }
 
 group = "com.d1vivek"
-version = "1.1"
+version = "1.2"
 
 repositories {
     mavenCentral()
@@ -17,7 +17,7 @@ repositories {
 // Read more: https://plugins.jetbrains.com/docs/intellij/tools-intellij-platform-gradle-plugin.html
 dependencies {
     intellijPlatform {
-        intellijIdea("2025.2.4")
+        intellijIdea("2024.3")
         testFramework(org.jetbrains.intellij.platform.gradle.TestFrameworkType.Platform)
 
 
@@ -29,11 +29,11 @@ dependencies {
 intellijPlatform {
     pluginConfiguration {
         ideaVersion {
-            sinceBuild = "252.25557"
+            sinceBuild = "243"
         }
 
         changeNotes = """
-            Initial version
+            Support extended from 2024.3 to latest
         """.trimIndent()
     }
 }
